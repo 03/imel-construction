@@ -115,6 +115,7 @@ function PortfolioContent() {
                                   src={'/images/props/' + `${project.imageAddr}` + '/image' + (idx+1) + '.jpg'}
                                   alt={`${project.imageAddr} - Image ${idx + 1}`}
                                   fill
+                                  loading={'eager'}
                                   className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
                               />
                             </div>)

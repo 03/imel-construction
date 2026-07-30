@@ -302,12 +302,12 @@ const zh: Dictionary = {
       filters: ['全部', '定制住宅', '联排别墅', '房屋翻新', '房屋加建'],
       placeholderLabel: '项目实拍照片即将上线',
       projects: [
-        { title: '定制住宅', meta: '5 Gerald st Murrumbeena', start: 'Jul 2025', finish: 'Jun 2026', type: 'Custom Homes', imageAddr: '5GeraldSt_Murrumbeena'},
-        { title: '定制住宅', meta: '22 Sheahans road Templestowe Lower', start: 'Aug 2022', finish: 'Jul 2023', type: 'Custom Homes', imageAddr: '22SheahansRd_TemplestoweLower' },
-        { title: '定制住宅', meta: '1 Verdi court, Templestowe ', start: 'Nov 2021', finish: 'May 2023', type: 'Custom Homes', imageAddr: '1VerdiCourt_Templestowe' },
-        { title: '定制住宅', meta: '1305 Glen huntly road Carnegie', start: 'Feb 2021', finish: 'Mar 2022', type: 'Custom Homes', imageAddr: '1305GlenHuntlyRd_Carnegie' },
-        { title: '定制住宅', meta: '15 Coolabah st Doncaster', start: 'Mar 2020', finish: 'Apr 2021', type: 'Custom Homes', imageAddr: '15CoolabahSt_Doncaster' },
-        { title: '定制住宅', meta: '89 Clyde st Box Hill', start: 'Feb 2020', finish: 'Feb 2021', type: 'Custom Homes', imageAddr: '89ClydeSt_Boxhill' },
+        { title: '定制住宅', meta: '5 Gerald st Murrumbeena', start: 'Jul 2025', finish: 'Jun 2026', type: 'Custom Homes', imageAddr: '5GeraldSt_Murrumbeena', numOfImages: 15},
+        { title: '定制住宅', meta: '22 Sheahans road Templestowe Lower', start: 'Aug 2022', finish: 'Jul 2023', type: 'Custom Homes', imageAddr: '22SheahansRd_TemplestoweLower', numOfImages: 22 },
+        { title: '定制住宅', meta: '1 Verdi court, Templestowe ', start: 'Nov 2021', finish: 'May 2023', type: 'Custom Homes', imageAddr: '1VerdiCourt_Templestowe', numOfImages: 10 },
+        { title: '定制住宅', meta: '1305 Glen huntly road Carnegie', start: 'Feb 2021', finish: 'Mar 2022', type: 'Custom Homes', imageAddr: '1305GlenHuntlyRd_Carnegie', numOfImages: 11 },
+        { title: '定制住宅', meta: '15 Coolabah st Doncaster', start: 'Mar 2020', finish: 'Apr 2021', type: 'Custom Homes', imageAddr: '15CoolabahSt_Doncaster', numOfImages: 13 },
+        { title: '定制住宅', meta: '89 Clyde st Box Hill', start: 'Feb 2020', finish: 'Feb 2021', type: 'Custom Homes', imageAddr: '89ClydeSt_Boxhill', numOfImages: 8 },
         /*{
           title: '定制住宅', meta: '维州 墨尔本', type: '定制住宅',
           start: "",
