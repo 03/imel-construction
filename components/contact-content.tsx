@@ -1,9 +1,9 @@
 'use client'
 
-import { useState } from 'react'
-import { Clock, Mail, MapPin, Phone, Send } from 'lucide-react'
-import { useLanguage } from '@/components/language-provider'
-import { contactDetails } from '@/lib/i18n'
+import {useState} from 'react'
+import {Clock, Mail, MapPin, Phone, Send} from 'lucide-react'
+import {useLanguage} from '@/components/language-provider'
+import {contactDetails} from '@/lib/i18n'
 
 const fieldClasses =
   'w-full border border-input bg-background px-4 py-3 text-sm text-foreground transition-colors placeholder:text-muted-foreground/70 focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent'
@@ -19,27 +19,58 @@ export function ContactContent() {
     message: '',
   })
 
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
+
   function update(key: keyof typeof form, value: string) {
     setForm((previous) => ({ ...previous, [key]: value }))
   }
 
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
-    const subject = `Project enquiry — ${form.type} — ${form.name || 'Website'}`
-    const body = [
-      `${t.contact.fields.name}: ${form.name}`,
-      `${t.contact.fields.email}: ${form.email}`,
-      `${t.contact.fields.phone}: ${form.phone}`,
-      `${t.contact.fields.type}: ${form.type}`,
-      `${t.contact.fields.suburb}: ${form.suburb}`,
-      '',
-      `${t.contact.fields.message}:`,
-      form.message,
-    ].join('\n')
+    setStatus('loading');
+    setErrorMessage('');
 
-    window.location.href = `mailto:${contactDetails.email}?subject=${encodeURIComponent(
-      subject,
-    )}&body=${encodeURIComponent(body)}`
+    // const subject = `Project enquiry — ${form.type} — ${form.name || 'Website'}`
+    const body = {
+      name: form.name,
+      email: form.email,
+      phone: form.phone,
+      type: form.type,
+      suburb: form.suburb,
+      message: form.message,
+    }
+    try {
+      const res = await fetch('/api/send', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body),
+      });
+
+      if (!res.ok) {
+        throw new Error('Failed to submit form');
+      }
+
+      setStatus('success');
+    } catch (err) {
+      setStatus('error');
+      setErrorMessage('Something went wrong. Please try again.');
+    }
+    //
+
+    // window.location.href = `mailto:${contactDetails.email}?subject=${encodeURIComponent(
+    //   subject,
+    // )}&body=${encodeURIComponent(body)}`
+
+  }
+
+  if (status === 'success') {
+    return (
+        <div className="rounded-md border border-green-200 bg-green-50 p-6 text-center text-green-800">
+          <h3 className="font-semibold">{t.contact.sendReply.heading}</h3>
+          <p className="mt-1 text-sm">{t.contact.sendReply.message}</p>
+        </div>
+    );
   }
 
   const details = [

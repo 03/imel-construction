@@ -171,12 +171,16 @@ const en = {
       formNote:
         'This form opens your email application with the details pre-filled, so nothing is stored on this website.',
       fields: {
-        name: 'Full name',
+        name: 'Name',
         email: 'Email address',
         phone: 'Phone',
         type: 'Project type',
         suburb: 'Project suburb',
         message: 'Project details',
+      },
+      sendReply: {
+        heading: 'Message Sent!',
+        message: 'Thank you for reaching out. We will get back to you shortly.'
       },
       typeOptions: [
         'Custom home',
@@ -374,12 +378,16 @@ const zh: Dictionary = {
       formTitle: '项目咨询',
       formNote: '提交后将打开您的邮件客户端并自动填入内容，本网站不会保存任何信息。',
       fields: {
-        name: '姓名',
+        name: '名字',
         email: '电子邮箱',
         phone: '联系电话',
         type: '项目类型',
         suburb: '项目所在区',
         message: '项目详情',
+      },
+      sendReply: {
+        heading: '消息已发送!',
+        message: '感谢您的联络，我们将尽快与您联系。'
       },
       typeOptions: [
         '定制住宅',
