@@ -42,7 +42,7 @@ export function Hero() {
 
         <div className="relative aspect-4/3 w-full overflow-hidden bg-muted">
           <Image
-            src="/images/hero-home.png"
+            src="/images/hero-home.jpg"
             alt={t.home.heroImageAlt}
             fill
             priority
