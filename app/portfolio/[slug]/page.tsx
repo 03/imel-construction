@@ -18,7 +18,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!project) return {}
 
   const title = `${project.title} in ${project.suburb}, Melbourne`
-  const description = `New custom home built by IMEL Construction at ${project.meta.trim()} VIC (${project.start} – ${project.finish}). See ${project.numOfImages} photos of this Melbourne build.`
+  const description =
+    project.description ??
+    `New custom home built by IMEL Construction at ${project.meta.trim()} VIC (${project.start} – ${project.finish}). See ${project.numOfImages} photos of this Melbourne build.`
   const path = `/portfolio/${project.slug}`
 
   return {

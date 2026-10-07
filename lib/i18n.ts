@@ -128,7 +128,8 @@ const en = {
       filters: ['All', 'Custom Homes', 'Townhouses', 'Renovations', 'Extensions'],
       placeholderLabel: 'Project photography coming soon',
       projects: [
-        { title: 'Custom Home', meta: '369 Auburn road Hawthorn', start: 'Jan 2026', finish: 'May 2026', type: 'Custom Homes', imageAddr: '369AuburnRd_Hawthorn', numOfImages: 30},
+        { title: 'Home Renovation', meta: '369 Auburn road Hawthorn', start: 'Jan 2026', finish: 'May 2026', type: 'Renovations', imageAddr: '369AuburnRd_Hawthorn', numOfImages: 30,
+          description: 'A complete home renovation project delivered by IMEL Construction. The works included demolition through to full construction and finishing, with the project completed within 6 months and handed over as a turnkey home.' },
         { title: 'Custom Home', meta: '5 Gerald st Murrumbeena', start: 'Jul 2025', finish: 'Jun 2026', type: 'Custom Homes', imageAddr: '5GeraldSt_Murrumbeena', numOfImages: 15},
         { title: 'Custom Home', meta: '22 Sheahans road Templestowe Lower', start: 'Aug 2022', finish: 'Jul 2023', type: 'Custom Homes', imageAddr: '22SheahansRd_TemplestoweLower', numOfImages: 22 },
         { title: 'Custom Home', meta: '1 Verdi court, Templestowe ', start: 'Nov 2021', finish: 'May 2023', type: 'Custom Homes', imageAddr: '1VerdiCourt_Templestowe', numOfImages: 10 },
@@ -317,7 +318,8 @@ const zh: Dictionary = {
       filters: ['全部', '定制住宅', '联排别墅', '房屋翻新', '房屋加建'],
       placeholderLabel: '项目实拍照片即将上线',
       projects: [
-        { title: '定制住宅', meta: '369 Auburn road Hawthorn', start: 'Jan 2026', finish: 'May 2026', type: 'Custom Homes', imageAddr: '369AuburnRd_Hawthorn', numOfImages: 30},
+        { title: '房屋翻新', meta: '369 Auburn road Hawthorn', start: 'Jan 2026', finish: 'May 2026', type: 'Renovations', imageAddr: '369AuburnRd_Hawthorn', numOfImages: 30,
+          description: '由 IMEL Construction 交付的整体住宅翻新项目。工程涵盖从拆除到全面施工及装修收尾的全过程，项目在 6 个月内完工，并以拎包入住的交钥匙形式交付。' },
         { title: '定制住宅', meta: '5 Gerald st Murrumbeena', start: 'Jul 2025', finish: 'Jun 2026', type: 'Custom Homes', imageAddr: '5GeraldSt_Murrumbeena', numOfImages: 15},
         { title: '定制住宅', meta: '22 Sheahans road Templestowe Lower', start: 'Aug 2022', finish: 'Jul 2023', type: 'Custom Homes', imageAddr: '22SheahansRd_TemplestoweLower', numOfImages: 22 },
         { title: '定制住宅', meta: '1 Verdi court, Templestowe ', start: 'Nov 2021', finish: 'May 2023', type: 'Custom Homes', imageAddr: '1VerdiCourt_Templestowe', numOfImages: 10 },

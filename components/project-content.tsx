@@ -33,7 +33,7 @@ export function ProjectContent({ slug }: { slug: string }) {
             {project.finish} &middot; {project.numOfImages} {t.portfolio.photosLabel}
           </p>
           <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground">
-            {t.portfolio.projectBody.replace('{suburb}', base.suburb)}
+            {project.description ?? t.portfolio.projectBody.replace('{suburb}', base.suburb)}
           </p>
         </div>
       </section>
