@@ -84,7 +84,7 @@ export function About() {
       <div className="mx-auto grid max-w-6xl gap-12 px-6 py-16 md:py-24 lg:grid-cols-2 lg:gap-16">
         <div className="relative aspect-3/4 w-full overflow-hidden bg-muted lg:sticky lg:top-28 lg:self-start">
           <Image
-            src="/images/about-craft.png"
+            src="/images/about-craft.jpg"
             alt={t.home.aboutImageAlt}
             fill
             sizes="(max-width: 1024px) 100vw, 50vw"
@@ -216,7 +216,7 @@ export function HomeCta() {
   return (
     <section className="relative isolate overflow-hidden bg-primary text-primary-foreground">
       <Image
-        src="/images/townhouse-row.png"
+        src="/images/townhouse-row.jpg"
         alt=""
         fill
         aria-hidden="true"
