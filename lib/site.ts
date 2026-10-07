@@ -14,16 +14,17 @@ export const BUSINESS = {
   // TODO: replace with the registered business address (keep identical to Google Business Profile).
   address: {
     streetAddress: '',
-    addressLocality: 'Melbourne',
+    addressLocality: 'Glen Iris',
     addressRegion: 'VIC',
-    postalCode: '',
+    postalCode: '3146',
     addressCountry: 'AU',
   },
-  geo: { latitude: -37.8136, longitude: 144.9631 },
+  geo: { latitude: -37.8585, longitude: 145.0597 }, // Glen Iris
   foundingDate: '2021',
   // Suburbs where IMEL has built or wants to win work. Drives structured data and service-page copy.
   areaServed: [
     'Melbourne',
+    'Glen Iris',
     'Hawthorn',
     'Balwyn',
     'Box Hill',
