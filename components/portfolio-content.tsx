@@ -4,6 +4,8 @@ import Link from 'next/link'
 import { useState, useEffect } from 'react'
 import { ArrowRight, ArrowUp } from 'lucide-react'
 import { useLanguage } from '@/components/language-provider'
+import { dictionary } from '@/lib/i18n'
+import { projectSlug } from '@/lib/projects'
 import { cn } from '@/lib/utils'
 import Image from "next/image";
 
@@ -12,12 +14,13 @@ function PortfolioContent() {
   const [activeFilter, setActiveFilter] = useState(0)
   const [showScrollTop, setShowScrollTop] = useState(false)
 
-  const filters = t.portfolio.filters
-  const activeLabel = filters[activeFilter] ?? filters[0]
+  // project.type always holds the English label, so match against the English filter
+  // at the same index rather than the translated one.
+  const activeType = dictionary.en.portfolio.filters[activeFilter]
   const projects =
       activeFilter === 0
           ? t.portfolio.projects
-          : t.portfolio.projects.filter((project) => project.type === activeLabel)
+          : t.portfolio.projects.filter((project) => project.type === activeType)
 
   // Show "Back to Top" button when user scrolls down 300px
   useEffect(() => {
@@ -57,74 +60,37 @@ function PortfolioContent() {
             <ul key={`${locale}-${activeFilter}`} className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {projects.map((project, index) => (
                   <li key={`${project.title}-${index}`} className="group flex flex-col">
-                    <a href={`#project-${index}`} className="block overflow-hidden border border-dashed border-border bg-background">
+                    <Link
+                        href={`/portfolio/${projectSlug(project.imageAddr)}`}
+                        className="block overflow-hidden border border-dashed border-border bg-background"
+                    >
                       <div className="relative aspect-4/3 w-full overflow-hidden">
                         <Image
                             src={'/images/props/' + `${project.imageAddr}` + '/main.jpg'}
-                            alt={project.title || t.home.heroImageAlt}
-                            loading={'eager'}
+                            alt={`${project.title} — ${project.meta.trim()}`}
+                            priority={index < 3}
                             width={500}
                             height={300}
-                            sizes="(max-width: 400px) 100vw, 50vw"
+                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                             className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
                         />
                       </div>
-                    </a>
+                    </Link>
                     <div className="mt-4 border-t border-border pt-4">
-                  <span className="shrink-0 text-xs uppercase tracking-[0.12em] text-muted-foreground">
-                    {project.meta} <br /> Start: {project.start} - Finish: {project.finish}
-                  </span>
+                      <Link
+                          href={`/portfolio/${projectSlug(project.imageAddr)}`}
+                          className="flex items-start justify-between gap-4 text-xs uppercase tracking-[0.12em] text-muted-foreground hover:text-accent"
+                      >
+                        <span>
+                          {project.meta} <br /> {t.portfolio.startLabel}: {project.start} - {t.portfolio.finishLabel}: {project.finish}
+                        </span>
+                        <ArrowRight className="h-4 w-4 shrink-0" aria-label={t.portfolio.viewProject} />
+                      </Link>
                     </div>
                   </li>
               ))}
             </ul>
           </div>
-        </section>
-
-        {/* Dedicated Section for Each Picture/Project */}
-        <section className="divide-y divide-border border-b border-border">
-          {projects.map((project, index) => (
-              <div
-                  id={`project-${index}`}
-                  key={`detail-${project.title}-${index}`}
-                  className="scroll-mt-10 py-16 md:py-24"
-              >
-                <div className="mx-auto max-w-6xl px-6">
-                  {/* Details Column */}
-                  <div className="flex flex-col justify-center lg:col-span-5">
-
-                  {/*<span className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
-                    {project.type || 'Project Detail'}
-                  </span>*/}
-                    <h2 className="mt-3 font-serif text-2xl leading-tight tracking-tight sm:text-3xl">
-                      {project.meta + ' (' + project.numOfImages + ' pictures)' || `Project ${index + 1}`}
-                    </h2>
-                    <div className="mt-4 inline-flex items-center gap-2 border-y border-border py-2 text-xs uppercase tracking-widest text-muted-foreground">
-                      <span>•</span>
-                      <span>{project.start} - {project.finish}</span>
-                    </div>
-
-                    <div>{  }</div>
-
-                    <div className="grid gap-10 lg:grid-cols-1">
-                      {/* Image Column */}
-                      {
-                        Array.from({ length: project.numOfImages }).map((_, idx) =>
-                            <div key={idx} className="relative aspect-16/9 w-full overflow-hidden rounded-sm border border-border bg-background lg:col-span-7">
-                              <Image
-                                  src={'/images/props/' + `${project.imageAddr}` + '/image' + (idx+1) + '.jpg'}
-                                  alt={`${project.imageAddr} - Image ${idx + 1}`}
-                                  fill
-                                  loading={'eager'}
-                                  className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
-                              />
-                            </div>)
-                      }
-                    </div>
-                  </div>
-                </div>
-              </div>
-          ))}
         </section>
 
         <section className="border-b border-border">

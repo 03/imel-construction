@@ -1,9 +1,11 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import { Instrument_Serif, Manrope } from 'next/font/google'
+import { JsonLd, businessJsonLd } from '@/components/json-ld'
 import { LanguageProvider } from '@/components/language-provider'
 import { SiteFooter } from '@/components/site-footer'
 import { SiteHeader } from '@/components/site-header'
+import { SITE_URL } from '@/lib/site'
 import './globals.css'
 
 const manrope = Manrope({
@@ -19,24 +21,45 @@ const instrumentSerif = Instrument_Serif({
   display: 'swap',
 })
 
+const defaultTitle = 'IMEL Construction — Melbourne Builders | Custom Homes & Townhouses'
+const defaultDescription =
+  'IMEL Construction is a Melbourne builder delivering custom homes, townhouse developments, knockdown rebuilds, renovations and extensions across Hawthorn, Balwyn, Box Hill, Doncaster and surrounds.'
+
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: 'IMEL Construction Pty Ltd — Melbourne Residential Builders',
-    template: '%s | IMEL Construction Pty Ltd',
+    default: defaultTitle,
+    template: '%s | IMEL Construction Melbourne',
   },
-  description:
-    'IMEL Construction Pty Ltd is a Melbourne-based residential construction company delivering custom homes, multi-unit townhouse developments, renovations, extensions and development management. Building Quality. Delivering Confidence.',
+  description: defaultDescription,
   keywords: [
-    'Melbourne builder',
-    'custom homes Melbourne',
-    'townhouse developments',
-    'home renovations',
-    'home extensions',
-    'knockdown rebuild',
-    'development management',
+    'builder Melbourne',
+    'Melbourne builders',
+    'construction company Melbourne',
+    'residential construction Melbourne',
+    'custom home builder Melbourne',
+    'townhouse builder Melbourne',
+    'knockdown rebuild Melbourne',
+    'home renovations Melbourne',
+    'home extensions Melbourne',
     'IMEL Construction',
   ],
-  generator: 'v0.app',
+  alternates: { canonical: '/' },
+  openGraph: {
+    type: 'website',
+    locale: 'en_AU',
+    url: '/',
+    siteName: 'IMEL Construction',
+    title: defaultTitle,
+    description: defaultDescription,
+    images: [{ url: '/images/hero-home.jpg', alt: 'Contemporary Melbourne home built by IMEL Construction' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: defaultTitle,
+    description: defaultDescription,
+    images: ['/images/hero-home.jpg'],
+  },
   icons: {
     icon: [
       { url: '/icon-light-32x32.png', media: '(prefers-color-scheme: light)' },
@@ -60,6 +83,7 @@ export default function RootLayout({
   return (
     <html lang="en-AU" className={`bg-background ${manrope.variable} ${instrumentSerif.variable}`}>
       <body className="flex min-h-screen flex-col font-sans antialiased">
+        <JsonLd data={businessJsonLd} />
         <LanguageProvider>
           <SiteHeader />
           <main className="flex-1">{children}</main>

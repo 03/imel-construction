@@ -14,8 +14,8 @@ const en = {
       tagline: 'Building Quality. Delivering Confidence.',
     },
     home: {
-      eyebrow: 'Melbourne residential builders — Established 2021',
-      heroTitle: 'Building Quality. Delivering Confidence.',
+      eyebrow: 'Building Quality. Delivering Confidence. — Est. 2021',
+      heroTitle: 'Melbourne Builders for Custom Homes, Townhouses & Renovations',
       heroBody:
         'IMEL Construction Pty Ltd is a Melbourne-based residential construction company delivering custom homes, townhouse developments, renovations and extensions with professionalism, integrity and attention to detail.',
       heroPrimary: 'Discuss your project',
@@ -128,11 +128,13 @@ const en = {
       filters: ['All', 'Custom Homes', 'Townhouses', 'Renovations', 'Extensions'],
       placeholderLabel: 'Project photography coming soon',
       projects: [
+        { title: 'Custom Home', meta: '369 Auburn road Hawthorn', start: 'Jan 2026', finish: 'May 2026', type: 'Custom Homes', imageAddr: '369AuburnRd_Hawthorn', numOfImages: 30},
         { title: 'Custom Home', meta: '5 Gerald st Murrumbeena', start: 'Jul 2025', finish: 'Jun 2026', type: 'Custom Homes', imageAddr: '5GeraldSt_Murrumbeena', numOfImages: 15},
         { title: 'Custom Home', meta: '22 Sheahans road Templestowe Lower', start: 'Aug 2022', finish: 'Jul 2023', type: 'Custom Homes', imageAddr: '22SheahansRd_TemplestoweLower', numOfImages: 22 },
         { title: 'Custom Home', meta: '1 Verdi court, Templestowe ', start: 'Nov 2021', finish: 'May 2023', type: 'Custom Homes', imageAddr: '1VerdiCourt_Templestowe', numOfImages: 10 },
         { title: 'Custom Home', meta: '1305 Glen huntly road Carnegie', start: 'Feb 2021', finish: 'Mar 2022', type: 'Custom Homes', imageAddr: '1305GlenHuntlyRd_Carnegie', numOfImages: 11 },
         { title: 'Custom Home', meta: '15 Coolabah st Doncaster', start: 'Mar 2020', finish: 'Apr 2021', type: 'Custom Homes', imageAddr: '15CoolabahSt_Doncaster', numOfImages: 13 },
+        { title: 'Custom Home', meta: '46 Yongala st Balwyn', start: 'Mar 2020', finish: 'Apr 2021', type: 'Custom Homes', imageAddr: '46YongalaSt_Balwyn', numOfImages: 19},
         { title: 'Custom Home', meta: '89 Clyde st Box Hill', start: 'Feb 2020', finish: 'Feb 2021', type: 'Custom Homes', imageAddr: '89ClydeSt_Boxhill', numOfImages: 8 },
         // { title: 'Townhouse Development', meta: 'Melbourne, VIC', type: 'Townhouses' },
         // { title: 'Full Home Renovation', meta: 'Melbourne, VIC', type: 'Renovations' },
@@ -150,6 +152,15 @@ const en = {
       ctaTitle: 'Have a site or a set of plans?',
       ctaBody: 'Send us the details and we will come back to you with the next steps.',
       ctaButton: 'Enquire now',
+      viewProject: 'View project',
+      backToPortfolio: 'All projects',
+      projectIn: 'in',
+      startLabel: 'Start',
+      finishLabel: 'Finish',
+      photosLabel: 'photos',
+      projectBody:
+        'A new custom home built by IMEL Construction in {suburb}, Melbourne. We managed the project from site start through construction to handover.',
+      moreProjects: 'More projects',
     },
     contact: {
       eyebrow: 'Contact',
@@ -227,8 +238,8 @@ const zh: Dictionary = {
       tagline: '品质建造，值得信赖。',
     },
     home: {
-      eyebrow: '墨尔本住宅建筑商 — 成立于 2021 年',
-      heroTitle: '品质建造，值得信赖。',
+      eyebrow: '品质建造，值得信赖 — 成立于 2021 年',
+      heroTitle: '墨尔本住宅建筑商：定制住宅、联排别墅与房屋翻新',
       heroBody:
         'IMEL Construction Pty Ltd 是一家位于墨尔本的住宅建筑公司，以专业、诚信和对细节的重视，提供定制住宅、联排别墅开发、房屋翻新与加建服务。',
       heroPrimary: '咨询您的项目',
@@ -306,11 +317,13 @@ const zh: Dictionary = {
       filters: ['全部', '定制住宅', '联排别墅', '房屋翻新', '房屋加建'],
       placeholderLabel: '项目实拍照片即将上线',
       projects: [
+        { title: '定制住宅', meta: '369 Auburn road Hawthorn', start: 'Jan 2026', finish: 'May 2026', type: 'Custom Homes', imageAddr: '369AuburnRd_Hawthorn', numOfImages: 30},
         { title: '定制住宅', meta: '5 Gerald st Murrumbeena', start: 'Jul 2025', finish: 'Jun 2026', type: 'Custom Homes', imageAddr: '5GeraldSt_Murrumbeena', numOfImages: 15},
         { title: '定制住宅', meta: '22 Sheahans road Templestowe Lower', start: 'Aug 2022', finish: 'Jul 2023', type: 'Custom Homes', imageAddr: '22SheahansRd_TemplestoweLower', numOfImages: 22 },
         { title: '定制住宅', meta: '1 Verdi court, Templestowe ', start: 'Nov 2021', finish: 'May 2023', type: 'Custom Homes', imageAddr: '1VerdiCourt_Templestowe', numOfImages: 10 },
         { title: '定制住宅', meta: '1305 Glen huntly road Carnegie', start: 'Feb 2021', finish: 'Mar 2022', type: 'Custom Homes', imageAddr: '1305GlenHuntlyRd_Carnegie', numOfImages: 11 },
         { title: '定制住宅', meta: '15 Coolabah st Doncaster', start: 'Mar 2020', finish: 'Apr 2021', type: 'Custom Homes', imageAddr: '15CoolabahSt_Doncaster', numOfImages: 13 },
+        { title: '定制住宅', meta: '46 Yongala st Balwyn', start: 'Mar 2020', finish: 'Apr 2021', type: 'Custom Homes', imageAddr: '46YongalaSt_Balwyn', numOfImages: 19},
         { title: '定制住宅', meta: '89 Clyde st Box Hill', start: 'Feb 2020', finish: 'Feb 2021', type: 'Custom Homes', imageAddr: '89ClydeSt_Boxhill', numOfImages: 8 },
         /*{
           title: '定制住宅', meta: '维州 墨尔本', type: '定制住宅',
@@ -359,6 +372,15 @@ const zh: Dictionary = {
       ctaTitle: '已有地块或图纸？',
       ctaBody: '把项目资料发给我们，我们会尽快回复并说明下一步安排。',
       ctaButton: '立即咨询',
+      viewProject: '查看项目',
+      backToPortfolio: '全部项目',
+      projectIn: '·',
+      startLabel: '开工',
+      finishLabel: '竣工',
+      photosLabel: '张照片',
+      projectBody:
+        '由 IMEL Construction 在墨尔本 {suburb} 建造的全新定制住宅。我们负责从开工、施工到交付的全过程管理。',
+      moreProjects: '更多项目',
     },
     contact: {
       eyebrow: '联系我们',
@@ -420,7 +442,7 @@ export const dictionary: Record<Locale, Dictionary> = { en, zh }
 
 export const contactDetails = {
   phone: '0433 750 622',
-  phoneHref: 'tel:+610433750622',
+  phoneHref: 'tel:+61433750622',
   email: 'info@imelconstruction.com.au',
   acn: '654 783 025',
   licence: 'CDB-U 102211',

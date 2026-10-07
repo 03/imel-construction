@@ -5,6 +5,7 @@ import { Mail, MapPin, Phone } from 'lucide-react'
 import { useLanguage } from '@/components/language-provider'
 import { LanguageSwitcher } from '@/components/language-switcher'
 import { contactDetails } from '@/lib/i18n'
+import { SERVICES } from '@/lib/site'
 
 export function SiteFooter() {
   const { t } = useLanguage()
@@ -51,6 +52,24 @@ export function SiteFooter() {
                     {t.nav.contact}
                   </Link>
                 </li>
+              </ul>
+            </div>
+
+            <div>
+              <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-primary-foreground/50">
+                {t.footer.servicesTitle}
+              </h2>
+              <ul className="mt-4 flex flex-col gap-3 text-sm">
+                {SERVICES.map((service) => (
+                  <li key={service.slug}>
+                    <Link
+                      href={`/services/${service.slug}`}
+                      className="text-primary-foreground/80 transition-colors hover:text-primary-foreground"
+                    >
+                      {service.shortName}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
 

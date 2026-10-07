@@ -3,6 +3,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight, Check } from 'lucide-react'
+import { SERVICES } from '@/lib/site'
 import { useLanguage } from '@/components/language-provider'
 
 function Eyebrow({ children }: { children: React.ReactNode }) {
@@ -134,15 +135,26 @@ export function Services() {
         </div>
 
         <ul className="mt-12 grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
-          {t.home.services.map((service, index) => (
-            <li key={service.title} className="flex flex-col gap-3 bg-background p-7">
-              <span className="font-mono text-xs text-accent">
-                {String(index + 1).padStart(2, '0')}
-              </span>
-              <h3 className="font-serif text-xl leading-snug tracking-tight">{service.title}</h3>
-              <p className="text-sm leading-relaxed text-muted-foreground">{service.body}</p>
-            </li>
-          ))}
+          {t.home.services.map((service, index) => {
+            const slug = SERVICES[index]?.slug
+            return (
+              <li key={service.title} className="flex flex-col gap-3 bg-background p-7">
+                <span className="font-mono text-xs text-accent">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+                <h3 className="font-serif text-xl leading-snug tracking-tight">
+                  {slug ? (
+                    <Link href={`/services/${slug}`} className="transition-colors hover:text-accent">
+                      {service.title}
+                    </Link>
+                  ) : (
+                    service.title
+                  )}
+                </h3>
+                <p className="text-sm leading-relaxed text-muted-foreground">{service.body}</p>
+              </li>
+            )
+          })}
         </ul>
       </div>
     </section>
