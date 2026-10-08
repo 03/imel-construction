@@ -6,6 +6,17 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  async redirects() {
+    // Send the bare domain to www so Google sees a single version of each page.
+    return [
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'imelconstruction.com.au' }],
+        destination: 'https://www.imelconstruction.com.au/:path*',
+        permanent: true,
+      },
+    ]
+  },
   async headers() {
     return [
       {
