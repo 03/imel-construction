@@ -135,9 +135,7 @@ export default async function ServicePage({ params }: Props) {
       {projects.length > 0 && (
         <section className="border-b border-border">
           <div className="mx-auto max-w-6xl px-6 py-16 md:py-20">
-            <h2 className="font-serif text-3xl leading-tight tracking-tight">
-              Recent {service.shortName.toLowerCase()} projects
-            </h2>
+            <h2 className="font-serif text-3xl leading-tight tracking-tight">Recent projects</h2>
             <ul className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {projects.map((project) => (
                 <li key={project.slug}>
