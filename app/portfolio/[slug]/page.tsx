@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { JsonLd, businessId } from '@/components/json-ld'
 import { ProjectContent } from '@/components/project-content'
-import { PROJECTS, findProject, projectImages, projectMainImage } from '@/lib/projects'
+import { PROJECTS, findProject, projectImages, projectMainImage, projectSeoDescription } from '@/lib/projects'
 import { SITE_URL } from '@/lib/site'
 
 type Props = { params: Promise<{ slug: string }> }
@@ -18,9 +18,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!project) return {}
 
   const title = `${project.title} in ${project.suburb}, Melbourne`
-  const description =
-    project.description ??
-    `New custom home built by IMEL Construction at ${project.meta.trim()} VIC (${project.start} – ${project.finish}). See ${project.numOfImages} photos of this Melbourne build.`
+  const description = projectSeoDescription(project)
   const path = `/portfolio/${project.slug}`
 
   return {

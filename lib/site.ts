@@ -40,6 +40,8 @@ export const BUSINESS = {
 export const SERVICES = [
   {
     slug: 'custom-homes',
+    // Portfolio project type shown on this page (see type in lib/i18n.ts projects).
+    projectType: 'Custom Homes',
     name: 'Custom Home Builder Melbourne',
     shortName: 'Custom Homes',
     title: 'Custom Home Builder Melbourne',
@@ -72,6 +74,7 @@ export const SERVICES = [
   },
   {
     slug: 'townhouse-developments',
+    projectType: 'Townhouses',
     name: 'Townhouse & Multi-Unit Developments',
     shortName: 'Townhouse Developments',
     title: 'Townhouse & Multi-Unit Builder Melbourne',
@@ -100,6 +103,7 @@ export const SERVICES = [
   },
   {
     slug: 'renovations',
+    projectType: 'Renovations',
     name: 'Home Renovations Melbourne',
     shortName: 'Renovations',
     title: 'Home Renovation Builder Melbourne',
@@ -123,6 +127,7 @@ export const SERVICES = [
   },
   {
     slug: 'extensions',
+    projectType: 'Extensions',
     name: 'Home Extensions Melbourne',
     shortName: 'Extensions',
     title: 'Home Extension Builder Melbourne',
@@ -145,6 +150,7 @@ export const SERVICES = [
   },
   {
     slug: 'knockdown-rebuild',
+    projectType: null,
     name: 'Knockdown Rebuild Melbourne',
     shortName: 'Knockdown Rebuild',
     title: 'Knockdown Rebuild Builder Melbourne',

@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import { ArrowRight, Check } from 'lucide-react'
 import { JsonLd, businessId } from '@/components/json-ld'
+import { projectMainImage, projectsOfType } from '@/lib/projects'
 import { BUSINESS, SERVICES, SITE_URL } from '@/lib/site'
 
 type Props = { params: Promise<{ slug: string }> }
@@ -36,6 +38,7 @@ export default async function ServicePage({ params }: Props) {
 
   const url = `${SITE_URL}/services/${service.slug}`
   const others = SERVICES.filter((other) => other.slug !== service.slug)
+  const projects = projectsOfType(service.projectType)
 
   return (
     <>
@@ -128,6 +131,39 @@ export default async function ServicePage({ params }: Props) {
           </div>
         </div>
       </section>
+
+      {projects.length > 0 && (
+        <section className="border-b border-border">
+          <div className="mx-auto max-w-6xl px-6 py-16 md:py-20">
+            <h2 className="font-serif text-3xl leading-tight tracking-tight">
+              Recent {service.shortName.toLowerCase()} projects
+            </h2>
+            <ul className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {projects.map((project) => (
+                <li key={project.slug}>
+                  <Link href={`/portfolio/${project.slug}`} className="group block">
+                    <div className="relative aspect-4/3 w-full overflow-hidden border border-border bg-background">
+                      <Image
+                        src={projectMainImage(project)}
+                        alt={`${project.title} in ${project.suburb}, Melbourne`}
+                        fill
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        className="object-cover transition-transform duration-300 group-hover:scale-105"
+                      />
+                    </div>
+                    <h3 className="mt-4 font-serif text-xl leading-snug tracking-tight group-hover:text-accent">
+                      {project.title} in {project.suburb}
+                    </h3>
+                    <p className="mt-1 text-xs uppercase tracking-[0.12em] text-muted-foreground">
+                      {project.start} – {project.finish}
+                    </p>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
 
       <section className="border-b border-border">
         <div className="mx-auto max-w-3xl px-6 py-16 md:py-20">

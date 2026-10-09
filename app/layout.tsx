@@ -23,7 +23,7 @@ const instrumentSerif = Instrument_Serif({
 
 const defaultTitle = 'IMEL Construction — Melbourne Builders | Custom Homes & Townhouses'
 const defaultDescription =
-  'IMEL Construction is a Melbourne builder delivering custom homes, townhouse developments, knockdown rebuilds, renovations and extensions across Hawthorn, Balwyn, Box Hill, Doncaster and surrounds.'
+  "IMEL Construction is a Melbourne builder of custom homes, townhouses, knockdown rebuilds, renovations and extensions, based in Glen Iris."
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

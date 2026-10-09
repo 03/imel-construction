@@ -169,6 +169,7 @@ const en = {
       projectBody:
         'A new custom home built by IMEL Construction in {suburb}, Melbourne. We managed the project from site start through construction to handover.',
       moreProjects: 'More projects',
+      relatedService: 'Learn more:',
     },
     contact: {
       eyebrow: 'Contact',
@@ -397,6 +398,7 @@ const zh: Dictionary = {
       projectBody:
         '由 IMEL Construction 在墨尔本 {suburb} 建造的全新定制住宅。我们负责从开工、施工到交付的全过程管理。',
       moreProjects: '更多项目',
+      relatedService: '了解更多：',
     },
     contact: {
       eyebrow: '联系我们',

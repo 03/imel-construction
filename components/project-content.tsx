@@ -4,7 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
 import { useLanguage } from '@/components/language-provider'
-import { PROJECTS, projectImages, projectMainImage } from '@/lib/projects'
+import { PROJECTS, projectImages, projectMainImage, serviceForProjectType } from '@/lib/projects'
 
 export function ProjectContent({ slug }: { slug: string }) {
   const { t } = useLanguage()
@@ -14,6 +14,7 @@ export function ProjectContent({ slug }: { slug: string }) {
   // Localised title/meta for the current language, matched on the image folder.
   const project = t.portfolio.projects.find((item) => item.imageAddr === base.imageAddr) ?? base
   const heading = `${project.title} ${t.portfolio.projectIn} ${base.suburb}`
+  const service = serviceForProjectType(base.type)
   const others = [1, 2, 3].map((offset) => PROJECTS[(index + offset) % PROJECTS.length]).filter((p) => p.slug !== slug)
 
   return (
@@ -35,6 +36,15 @@ export function ProjectContent({ slug }: { slug: string }) {
           <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground">
             {project.description ?? t.portfolio.projectBody.replace('{suburb}', base.suburb)}
           </p>
+          {service && (
+            <Link
+              href={`/services/${service.slug}`}
+              className="mt-6 inline-flex items-center gap-2 text-sm font-medium hover:text-accent"
+            >
+              {t.portfolio.relatedService} {service.name}
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          )}
         </div>
       </section>
 
