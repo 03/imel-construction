@@ -21,6 +21,8 @@ const instrumentSerif = Instrument_Serif({
   display: 'swap',
 })
 
+const ICON_VERSION = 2
+
 const defaultTitle = 'IMEL Construction — Melbourne Builders | Custom Homes & Townhouses'
 const defaultDescription =
   "IMEL Construction is a Melbourne builder of custom homes, townhouses, knockdown rebuilds, renovations and extensions, based in Glen Iris."
@@ -60,13 +62,15 @@ export const metadata: Metadata = {
     description: defaultDescription,
     images: ['/images/hero-home.jpg'],
   },
+  // Bump ICON_VERSION when the icons change: the host caches them for a year.
   icons: {
     icon: [
-      { url: '/icon-light-32x32.png', media: '(prefers-color-scheme: light)' },
-      { url: '/icon-dark-32x32.png', media: '(prefers-color-scheme: dark)' },
-      { url: '/icon.svg', type: 'image/svg+xml' },
+      { url: `/icon-light-32x32.png?v=${ICON_VERSION}`, media: '(prefers-color-scheme: light)' },
+      { url: `/icon-dark-32x32.png?v=${ICON_VERSION}`, media: '(prefers-color-scheme: dark)' },
+      { url: `/icon.svg?v=${ICON_VERSION}`, type: 'image/svg+xml' },
     ],
-    apple: '/apple-icon.png',
+    shortcut: `/favicon.ico?v=${ICON_VERSION}`,
+    apple: `/apple-icon.png?v=${ICON_VERSION}`,
   },
 }
 
