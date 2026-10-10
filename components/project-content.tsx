@@ -5,9 +5,10 @@ import Link from 'next/link'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
 import { useLanguage } from '@/components/language-provider'
 import { PROJECTS, projectImages, projectMainImage, serviceForProjectType } from '@/lib/projects'
+import { serviceText } from '@/lib/site'
 
 export function ProjectContent({ slug }: { slug: string }) {
-  const { t } = useLanguage()
+  const { t, locale } = useLanguage()
 
   const index = PROJECTS.findIndex((project) => project.slug === slug)
   const base = PROJECTS[index]
@@ -41,7 +42,7 @@ export function ProjectContent({ slug }: { slug: string }) {
               href={`/services/${service.slug}`}
               className="mt-6 inline-flex items-center gap-2 text-sm font-medium hover:text-accent"
             >
-              {t.portfolio.relatedService} {service.name}
+              {t.portfolio.relatedService} {serviceText(service, locale).name}
               <ArrowRight className="h-4 w-4" />
             </Link>
           )}

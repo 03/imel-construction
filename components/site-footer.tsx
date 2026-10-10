@@ -5,10 +5,10 @@ import { Mail, MapPin, Phone } from 'lucide-react'
 import { useLanguage } from '@/components/language-provider'
 import { LanguageSwitcher } from '@/components/language-switcher'
 import { contactDetails } from '@/lib/i18n'
-import { SERVICES } from '@/lib/site'
+import { SERVICES, serviceText } from '@/lib/site'
 
 export function SiteFooter() {
-  const { t } = useLanguage()
+  const { t, locale } = useLanguage()
 
   return (
     <footer className="border-t border-border bg-primary text-primary-foreground">
@@ -66,7 +66,7 @@ export function SiteFooter() {
                       href={`/services/${service.slug}`}
                       className="text-primary-foreground/80 transition-colors hover:text-primary-foreground"
                     >
-                      {service.shortName}
+                      {serviceText(service, locale).shortName}
                     </Link>
                   </li>
                 ))}
