@@ -42,7 +42,7 @@ export function ProjectContent({ slug }: { slug: string }) {
               href={`/services/${service.slug}`}
               className="mt-6 inline-flex items-center gap-2 text-sm font-medium hover:text-accent"
             >
-              {t.portfolio.relatedService} {serviceText(service, locale).name}
+              {t.portfolio.relatedService.replace('{service}', serviceText(service, locale).name)}
               <ArrowRight className="h-4 w-4" />
             </Link>
           )}

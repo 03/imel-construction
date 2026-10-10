@@ -169,7 +169,7 @@ const en = {
       projectBody:
         'A new custom home built by IMEL Construction in {suburb}, Melbourne. We managed the project from site start through construction to handover.',
       moreProjects: 'More projects',
-      relatedService: 'Learn more:',
+      relatedService: 'Learn more: {service}',
     },
     servicePage: {
       home: 'Home',
@@ -179,6 +179,7 @@ const en = {
       includesTitle: 'What’s included',
       areasTitle: 'Areas we build in',
       areasBody: 'IMEL Construction builds across Melbourne, including {suburbs}.',
+      listSeparator: ', ',
       seeProjects: 'See our completed projects',
       recentProjects: 'Recent projects',
       faqTitle: 'Frequently asked questions',
@@ -411,7 +412,7 @@ const zh: Dictionary = {
       projectBody:
         '由 IMEL Construction 在墨尔本 {suburb} 建造的全新定制住宅。我们负责从开工、施工到交付的全过程管理。',
       moreProjects: '更多项目',
-      relatedService: '了解更多：',
+      relatedService: '了解更多：{service}',
     },
     servicePage: {
       home: '首页',
@@ -421,6 +422,7 @@ const zh: Dictionary = {
       includesTitle: '服务内容',
       areasTitle: '服务区域',
       areasBody: 'IMEL Construction 的项目遍布墨尔本，包括 {suburbs}。',
+      listSeparator: '、',
       seeProjects: '查看我们的完工项目',
       recentProjects: '近期项目',
       faqTitle: '常见问题',

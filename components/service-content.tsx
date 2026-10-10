@@ -67,7 +67,7 @@ export function ServiceContent({ slug }: { slug: string }) {
           <div>
             <h2 className="font-serif text-3xl leading-tight tracking-tight">{sp.areasTitle}</h2>
             <p className="mt-6 text-sm leading-relaxed text-muted-foreground">
-              {sp.areasBody.replace('{suburbs}', BUSINESS.areaServed.slice(1).join(', '))}
+              {sp.areasBody.replace('{suburbs}', BUSINESS.areaServed.slice(1).join(sp.listSeparator))}
             </p>
             <Link href="/portfolio" className="mt-6 inline-flex items-center gap-2 text-sm font-medium hover:text-accent">
               {sp.seeProjects}
